@@ -6,10 +6,7 @@ const emailElement = document.querySelector("#email");
 const phoneElement = document.querySelector("#phone");
 const addressElement = document.querySelector("#address");
 const genderElement = document.getElementsByClassName("gender");
-fullNameElement.value = "";
-emailElement.value = "";
-phoneElement.value = "";
-addressElement.value = "";
+
 
 formElement.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -47,7 +44,7 @@ function readerStudent(data) {
         <td>${student.phone}</td>
         <td>${student.address}</td>
         <td>Gender</td>
-        <td><button onclick="delete_student(${index})">delete</button><button>edit</button></td>
+        <td><button onclick="delete_student(${index})">delete</button><button onclick="edit_student(${index})">edit</button></td>
         `;
   });
   document.querySelector(".list-student").innerHTML = resurl;
@@ -59,7 +56,7 @@ function getStedent() {
     email: emailElement.value,
     phone: phoneElement.value,
     address: addressElement.value,
-    gender: genderElement.checked,
+    gender: genderElement.value,
   };
 }
 function checkError(user) {
@@ -138,4 +135,8 @@ function handleArrange() {
 
   console.log(studentsDB);
   readerStudent(studentsDB);
+}
+// edit student
+function edit_student(index){
+
 }
